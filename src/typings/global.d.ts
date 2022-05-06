@@ -11,6 +11,7 @@ declare global {
             ERROR_MSG_FILE: PathOrFileDescriptor;
             TRAIN: string;
             ADMIN_ROLE_NAME: string;
+            PORT: string;
         }
     }
 }

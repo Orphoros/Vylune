@@ -1,0 +1,24 @@
+version: "1.0.0"
+
+services:
+  app:
+    entrypoint:
+      BOT_TOKEN: ${BOT_TOKEN}
+      VC_NAME: ${VC_NAME}
+      USE_GUILD: ${USE_GUILD}
+      TRAIN: ${TRAIN}
+      GUILD_ID: ${GUILD_ID}
+      BOT_ID: ${BOT_ID}
+      BRAIN_FILE: ${BRAIN_FILE}
+      TRAINING_FILE: ${TRAINING_FILE}
+      ERROR_MSG_FILE: ${ERROR_MSG_FILE}
+      ADMIN_ROLE_NAME: ${ADMIN_ROLE_NAME}
+    container_name: vylune
+    image: vylune
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    ports:
+      - "${PORT}:${PORT}"

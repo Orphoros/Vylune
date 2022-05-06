@@ -5,7 +5,7 @@
   "main": "bin/app.js",
   "private": true,
   "scripts": {
-    "start": "npm-run-all build train execute",
+    "start": "npm-run-all build execute",
     "execute": "cross-env node bin/app.js",
     "dev": "ts-node src/app.ts",
     "lint": "eslint src --ext .ts",
