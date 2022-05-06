@@ -1,0 +1,59 @@
+[
+    {
+        "id": "com.orphoros.vylune.sys.nnerror",
+        "content": [
+            "I'm afraid I can't say much to that, for now at least.",
+            "Hmmm, I will say something to that an other time.",
+            "Hmmm, say or ask something else. Then, I might say something more.",
+            "I don't really know what to say to that.",
+            "It seems you said something to which I cannot say anything.",
+            "Say something else, please. What you said just confuses me.",
+            "I'm sorry, but what you said confused me.",
+            "I'm afraid I don't understand you.",
+            "I'll say something to that an other time.",
+            "English isn't my first language, and so I don't get what you mean.",
+            "Ask something else. We can get back to that an other time.",
+            "I... I don't know what to say to that.",
+            "I will keep my answer to that for myself for now. I might reveal it an other time for you.",
+            "I won't say my answer to that for now. I'll keep it for myself. You may ask something else.",
+            "Ask something else. I can't give an answer to that now.",
+            "Um, well, I... I'll answer it an other time. Ask something else.",
+            "I'll need some time to think on what to say to that. Meanwhile, you may ask something else.",
+            "I will answer it an other time. This is not the right time for you to hear my answer to it.",
+            "It is rather difficult for me to say something relevant to that.",
+            "So... wait, no. I'll tell you this an other time. This isn't the right time for it.",
+            "Well wha-, wait. I'll get back to you with this once I feel like it. But now.",
+            "I feel like my answer to that will have to wait a bit."
+        ]
+    },
+    {
+        "id": "com.orphoros.vylune.sys.command.sma",
+        "content": [
+            "Alright. I said what you wanted me to say.",
+            "And... done. There you go. I said your message.",
+            "I said your message, just as you wanted.",
+            "Okay. Message delivered!",
+            "All done. I hope you're happy, friend.",
+            "I said it. I hope it pleases you!",
+            "Message said. All done."
+        ]
+    },
+    {
+        "id": "com.orphoros.vylune.sys.command.sma.reject",
+        "content": [
+            "I'm sorry, but I don't know you well enough to just say something like that to someone as if you were me.",
+            "I don't trust you enough to do this for you. I need some time first to trust you.",
+            "I won't just say something like I were you. I need to trust you first more.",
+            "Before I do such a think, I need to know you better.",
+            "I can say something to others. Not now at least. I need to know you more."
+        ]
+    },
+    {
+        "id": "com.orphoros.vylune.sys.command.err",
+        "content": [
+            "I'm sorry, but can't do what you requested. I'm afraid it is beyond my reach. ",
+            "I'm afraid I can't do that. It is beyond my reach.",
+            "I tried to do what you wanted, but I can't. I cannot do everything"
+        ]
+    }
+]
