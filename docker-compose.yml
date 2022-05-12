@@ -20,5 +20,3 @@ services:
       context: .
       dockerfile: Dockerfile
       target: base
-    ports:
-      - "${PORT}:${PORT}"
