@@ -10,7 +10,7 @@ const { NlpManager } = require('node-nlp');
 
 const nlpManager = new NlpManager({ languages: ['en'] });
 
-const inint = async () => {
+const init = async () => {
   if (process.env.TRAIN === 'true') {
     await trainnlp(nlpManager);
     return;
@@ -31,6 +31,12 @@ const inint = async () => {
   await messageCreate(client, nlpManager);
 
   client.login(process.env.BOT_TOKEN);
+
+  process.on('SIGTERM', () => {
+    console.log('Shutting down...');
+    client.destroy();
+    process.exit(0);
+  });
 };
 
-inint();
+init();
