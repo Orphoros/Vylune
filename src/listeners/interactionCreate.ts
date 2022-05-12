@@ -7,7 +7,7 @@ export default (client: Client): void => {
   client.on('interactionCreate', async (interaction:Interaction) => {
     if (!interaction.isCommand()) return;
 
-    const { commandName, options } = interaction;
+    const { options } = interaction;
 
     const roles = interaction.member?.roles as GuildMemberRoleManager;
 
