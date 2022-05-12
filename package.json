@@ -2,27 +2,25 @@
   "name": "vylune",
   "version": "1.0.0",
   "description": "Discord Community Bot",
-  "main": "bin/app.js",
+  "main": "src/app.ts",
   "private": true,
   "scripts": {
-    "start": "npm-run-all build execute",
-    "execute": "cross-env node bin/app.js",
-    "dev": "ts-node src/app.ts",
-    "lint": "eslint src --ext .ts",
+    "start": "if [ \"$NODE_ENV\" != \"production\" ]; then npm run lint; fi && ts-node src/app.ts",
+    "lint": "eslint --max-warnings 0 src --ext .ts",
     "lint:fix": "npx eslint src --ext .ts --fix",
     "build": "cross-env npx tsc",
     "watch:dev": "nodemon",
-    "train": "cross-env TRAIN=true ts-node src/app.ts"
+    "train": "cross-env TRAIN=true ts-node src/app.ts",
+    "docker:build": "docker build -t orphoros/vylune .",
+    "docker:push": "docker push orphoros/vylune"
   },
   "author": "Orphoros CTC",
   "license": "GPL-3.0",
   "dependencies": {
     "cross-env": "^7.0.3",
     "discord.js": "^13.6.0",
-    "dotenv-cli": "^5.1.0",
     "node-nlp": "^4.24.0",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^4.6.4"
+    "ts-node": "^10.7.0"
   },
   "repository": {
     "type": "git",
@@ -36,11 +34,11 @@
     "eslint": "^8.14.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "nodemon": "^2.0.15",
-    "ts-node": "^10.7.0"
+    "typescript": "^4.6.4"
   },
   "keywords": [],
   "nodemonConfig": {
-    "exec": "npm run dev",
+    "exec": "npm run start",
     "watch": [
       "src/",
       ".env"
