@@ -9,7 +9,7 @@
     "dev": "npm run lint && npm run start",
     "lint": "eslint --max-warnings 0 src --ext .ts",
     "lint:fix": "npx eslint src --ext .ts --fix",
-    "build": "cross-env npx tsc",
+    "build": "npx tsc",
     "watch:dev": "nodemon",
     "train": "cross-env TRAIN=true ts-node src/app.ts",
     "docker:build": "docker build -t orphoros/vylune .",
