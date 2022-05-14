@@ -5,7 +5,8 @@
   "main": "src/app.ts",
   "private": true,
   "scripts": {
-    "start": "if [ \"$NODE_ENV\" != \"production\" ]; then npm run lint; fi && ts-node src/app.ts",
+    "start": "ts-node src/app.ts",
+    "dev": "npm run lint && npm run start",
     "lint": "eslint --max-warnings 0 src --ext .ts",
     "lint:fix": "npx eslint src --ext .ts --fix",
     "build": "cross-env npx tsc",
