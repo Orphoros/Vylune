@@ -10,7 +10,7 @@ export default (client: Client): void => {
     // TODO: Run only when needed
     client.application.commands.set([]);
     const devGuild = await client.guilds.fetch(process.env.GUILD_ID ?? '');
-    devGuild.commands.set([]);
+    if (devGuild && devGuild.commands) devGuild.commands.set([]);
 
     const guildID = process.env.USE_GUILD === 'true' ? process.env.GUILD_ID : '';
     const guild = client.guilds.cache.get(guildID as string);
