@@ -11,10 +11,6 @@ jobs:
     runs-on: self-hosted
     name: Lint
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -65,5 +61,6 @@ jobs:
         with:
           key: ${{ secrets.DEPLOYMENT_SSH }}
           known_hosts: ${{ secrets.KNOWN_HOST }}
+          if_key_exists: ignore
       - name: Execute Deployment Script
         run: ssh docker-runner@orphoros.com ./docker/VyluneDockerDeploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
