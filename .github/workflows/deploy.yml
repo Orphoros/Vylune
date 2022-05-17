@@ -1,16 +1,15 @@
-name: ESLint
+name: Deploy
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  release:
-    types: [published]
 
 jobs:
   lint:
     runs-on: self-hosted
+    name: Lint
 
     strategy:
       matrix:
@@ -27,7 +26,7 @@ jobs:
     - run: npm run lint
 
   push-to-registry:
-    name: Push Docker image to Docker Hub
+    name: Build
     runs-on: self-hosted
     needs: lint
     if: ${{ github.event_name != 'pull_request' }}
@@ -35,7 +34,6 @@ jobs:
     steps:
       - name: Repo checkout
         uses: actions/checkout@v3
-      
       - name: Docker authenticate
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
@@ -55,3 +53,17 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  deploy-image:
+    name: Deploy
+    runs-on: self-hosted
+    needs: push-to-registry
+
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.DEPLOYMENT_SSH }}
+          known_hosts: ${{ secrets.KNOWN_HOST }}
+      - name: Execute Deployment Script
+        run: ssh docker-runner@orphoros.com ./docker/VyluneDockerDeploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
