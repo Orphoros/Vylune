@@ -63,4 +63,4 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOST }}
           if_key_exists: ignore
       - name: Execute Deployment Script
-        run: ssh docker-runner@orphoros.com ./docker/VyluneDockerDeploy.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+        run: ssh docker-runner@srv.orphoros.com ./docker/DockerDeploy.sh vylune 172.19.0.13 3000:3000
